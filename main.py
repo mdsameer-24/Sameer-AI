@@ -88,7 +88,7 @@ if __name__ == "__main__":
     if "last_uploaded_files" not in st.session_state:
         st.session_state.last_uploaded_files = set()
 
-    st.warning("📱 On mobile? Tap `>>` to upload PDFs.", icon="⚠️")
+    st.warning("Ask me anything or 📱 On mobile? Tap >> to upload PDFs if it's document-related!", icon="⚠️")
     uploaded_files = st.sidebar.file_uploader("Upload PDF files", type=["pdf"], accept_multiple_files=True)
 
     if uploaded_files:
