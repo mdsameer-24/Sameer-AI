@@ -21,3 +21,15 @@ pymysql
 typing-extensions
 ipython
 duckduckgo_search
+
+
+streamlit
+python-dotenv
+uuid
+langchain
+langchain-community
+langchain-core
+langgraph
+langchain-google-genai
+pypdf
+chromadb
