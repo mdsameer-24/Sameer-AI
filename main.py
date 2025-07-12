@@ -161,17 +161,10 @@ if __name__ == "__main__":
                 # )
                 # file_db.persist()
                 # per_file_dbs[uploaded_file.name] = file_db
-                chroma_settings = Settings(
-                    persist_directory=file_db_path,
-                    anonymized_telemetry=False,
-                    is_persistent=True
-                )
                 file_db = Chroma.from_documents(
                     documents=chunks,
-                    embedding=embedding_fn,
-                    persist_directory=file_db_path,
-                    client_settings=chroma_settings
-                )
+                    embedding=embedding_fn
+                    )
                 file_db.persist()
                 per_file_dbs[uploaded_file.name] = file_db
 
