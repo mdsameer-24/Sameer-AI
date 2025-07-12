@@ -12,7 +12,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import ToolNode, tools_condition
-
+from chromadb.config import Settings
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain.tools import Tool
 from langchain_community.tools import DuckDuckGoSearchRun
@@ -154,10 +154,23 @@ if __name__ == "__main__":
                 chunks = loader.load_and_split(splitter)
 
                 file_db_path = os.path.join(CHROMA_SESSION_DIR, uploaded_file.name)
+                # file_db = Chroma.from_documents(
+                #     documents=chunks,
+                #     embedding=embedding_fn,
+                #     persist_directory=file_db_path
+                # )
+                # file_db.persist()
+                # per_file_dbs[uploaded_file.name] = file_db
+                chroma_settings = Settings(
+                    persist_directory=file_db_path,
+                    anonymized_telemetry=False,
+                    is_persistent=True
+                )
                 file_db = Chroma.from_documents(
                     documents=chunks,
                     embedding=embedding_fn,
-                    persist_directory=file_db_path
+                    persist_directory=file_db_path,
+                    client_settings=chroma_settings
                 )
                 file_db.persist()
                 per_file_dbs[uploaded_file.name] = file_db
