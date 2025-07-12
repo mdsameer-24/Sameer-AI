@@ -108,7 +108,7 @@ if __name__ == "__main__":
                 file_db.save_local(f"faiss_indexes/{uploaded_file.name}")
                 per_file_dbs[uploaded_file.name] = file_db
             st.session_state.last_uploaded_files = current_uploaded
-            st.success("PDFs indexed!")
+            st.success("✅ PDFs uploaded")
             st.session_state.graph = graph_builder.compile(checkpointer=st.session_state.checkpointer)
 
     if "graph" not in st.session_state:
