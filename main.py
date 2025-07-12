@@ -60,8 +60,8 @@ tools.extend([
 ])
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    temperature=0.2,
+    model="gemini-2.5-pro",
+    temperature=0.5,
     google_api_key=os.environ["GOOGLE_API_KEY"]
 )
 llm_with_tools = llm.bind_tools(tools)
@@ -142,4 +142,6 @@ if __name__ == "__main__":
                 with st.chat_message("assistant"):
                     st.markdown(ai_message)
         except Exception as e:
-            st.error(f"❌ Error: {e}")
+            # st.error(f"❌ Error: {e}")
+            st.error("❌ Oops! Something went wrong. Please try again shortly.")
+
