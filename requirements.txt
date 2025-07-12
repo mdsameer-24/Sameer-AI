@@ -33,3 +33,12 @@ langgraph
 langchain-google-genai
 pypdf
 chromadb
+
+streamlit
+python-dotenv
+langchain
+langchain-community
+langchain-google-genai
+chromadb
+pypdf
+faiss-cpu

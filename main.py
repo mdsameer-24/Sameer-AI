@@ -12,6 +12,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import ToolNode, tools_condition
+from langchain_community.vectorstores import FAISS
 
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain.tools import Tool
@@ -100,7 +101,11 @@ if __name__ == "__main__":
                     f.write(uploaded_file.read())
                 loader = PyPDFLoader(path)
                 chunks = loader.load_and_split(splitter)
-                file_db = Chroma.from_documents(documents=chunks, embedding=embedding_fn)
+                file_db = FAISS.from_documents(
+    documents=chunks,
+    embedding=embedding_fn
+)
+                file_db.save_local(f"faiss_indexes/{uploaded_file.name}")
                 per_file_dbs[uploaded_file.name] = file_db
             st.session_state.last_uploaded_files = current_uploaded
             st.success("PDFs indexed!")
