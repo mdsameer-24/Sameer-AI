@@ -1,0 +1,23 @@
+# Core
+streamlit
+python-dotenv
+requests
+
+# LangChain and LangGraph
+langchain
+langgraph
+langchain-core
+langchain-community
+langchain-google-genai
+
+# LLM Tools
+google-generativeai
+
+# SQL and Database
+sqlalchemy
+pymysql
+
+# Typing and Dev Tools
+typing-extensions
+ipython
+duckduckgo_search
