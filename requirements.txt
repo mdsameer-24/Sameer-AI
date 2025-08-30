@@ -21,6 +21,7 @@ pymysql
 typing-extensions
 ipython
 duckduckgo_search
+ddgs
 
 
 streamlit
