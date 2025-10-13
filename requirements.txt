@@ -43,3 +43,11 @@ langchain-google-genai
 chromadb
 pypdf
 faiss-cpu
+
+
+langchain
+langchain-community
+faiss-cpu
+sentence-transformers
+streamlit
+

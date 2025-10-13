@@ -21,6 +21,8 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
 # === Load env variables ===
 load_dotenv()
 
@@ -33,10 +35,12 @@ class State(TypedDict):
 
 tools = []
 
-embedding_fn = GoogleGenerativeAIEmbeddings(
-    model="models/embedding-001",
-    google_api_key=os.environ["GOOGLE_API_KEY"]
-)
+# embedding_fn = GoogleGenerativeAIEmbeddings(
+#     model="models/embedding-001",
+#     google_api_key=os.environ["GOOGLE_API_KEY"]
+# )
+embedding_fn = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
 
 if "per_file_dbs" not in st.session_state:
     st.session_state.per_file_dbs = {}
