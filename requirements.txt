@@ -59,3 +59,11 @@ faiss-cpu
 streamlit
 
 
+langchain==0.2.11
+langchain-core==0.2.23
+langchain-google-genai==1.0.1
+google-generativeai==0.7.2
+protobuf==4.25.3
+
+
+
