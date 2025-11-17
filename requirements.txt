@@ -12,3 +12,4 @@ pypdf
 duckduckgo-search
 google-generativeai
 typing-extensions
+ddgs
