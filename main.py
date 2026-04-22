@@ -15,7 +15,7 @@ from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_community.vectorstores import FAISS
 
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
-from langchain.tools import Tool
+from langchain_core.tools import Tool
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders import PyPDFLoader
